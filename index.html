@@ -4,21 +4,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Page</title>
+    <title>小白 - Personal Page</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Using Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for beautiful lightweight icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
-    <div class="background-anim"></div>
-    <main class="glass-card">
-        <h1 class="name-display">Hello, <span id="user-name">Sh1ro22</span>!</h1>
-        <div class="time-container">
-            <p class="time-label">Current Local Time</p>
-            <div id="clock" class="clock-display">Loading time...</div>
-            <div id="date" class="date-display"></div>
+    <!-- Dynamic animated gradient background -->
+    <div class="gradient-bg">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
         </div>
-    </main>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Profile Card -->
+        <div class="card profile-card">
+            <div class="avatar-container">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Xiaobai&backgroundColor=ffd5dc" alt="Avatar" class="avatar">
+            </div>
+            <h1 class="name">小白 (Xiaobai)</h1>
+            <p class="major"><i class="ph ph-student"></i> 資訊工程 (Computer Science)</p>
+            <p class="bio">你好！可以叫我小白。<br>平時的興趣是打羽球 🏸 和彈吉他 🎸。</p>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="card skills-card">
+            <h2 class="section-title"><i class="ph ph-code"></i> Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag python">Python</div>
+                <div class="skill-tag cpp">C / C++</div>
+                <div class="skill-tag web">Web Development</div>
+                <div class="skill-tag ai">AI & Machine Learning</div>
+            </div>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="card projects-card">
+            <h2 class="section-title"><i class="ph ph-rocket-launch"></i> Projects</h2>
+            <div class="project-item">
+                <div class="project-header">
+                    <h3>DIC-1 Personal Page</h3>
+                    <a href="https://github.com/xwh1te0122/NCHU_AIoT_0916DIC" target="_blank" class="github-btn" title="View on GitHub">
+                        <i class="ph ph-github-logo"></i>
+                    </a>
+                </div>
+                <p class="project-desc">一個具備即時時鐘、現代化漸層設計且充滿活力的個人網頁。完成 AIoT 課程的第一個正式網頁開發任務！</p>
+                <div class="tech-stack">
+                    <span>HTML5</span>
+                    <span>CSS3</span>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Clock Card -->
+        <div class="card clock-card">
+            <div class="clock-header">
+                <h2 id="greeting" class="greeting">Good Morning!</h2>
+                <button id="format-toggle" class="toggle-btn" title="Toggle 12H/24H">24H</button>
+            </div>
+            
+            <div class="time-display">
+                <div id="clock" class="clock">--:--:--</div>
+                <div id="ampm" class="ampm"></div>
+            </div>
+            
+            <div class="date-location">
+                <div id="date" class="date">Loading date...</div>
+                <div class="timezone">
+                    <i class="ph ph-globe-hemisphere-east"></i> <span id="timezone">Timezone</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
